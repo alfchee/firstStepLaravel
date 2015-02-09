@@ -25,3 +25,5 @@ Route::get('/songs','SongsController@index');
 
 Route::get('/songs/{slug}','SongsController@show');
 Route::get('/songs/{slug}/edit','SongsController@edit');
+
+patch('songs/{slug}','SongsController@update');
