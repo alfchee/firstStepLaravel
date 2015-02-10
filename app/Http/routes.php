@@ -11,17 +11,16 @@
 |
 */
 
-$router->bind('song',function($slug)
+$router->bind('songs',function($slug)
 {
     return App\Song::whereSlug($slug)->first();
 });
 
-$router->get('song', ['as' => 'songs_path', 'uses' => 'SongsController@index']);
-$router->get('song/{song}', ['as' => 'song_path', 'uses' => 'SongsController@show']);
 
-
-// $router->resource('songs', 'SongsController', [
-//  'except' => [
-//      'create'
-//  ]
-// ]);
+$router->resource('songs', 'SongsController', [
+    'names' => [
+        'index' => 'songs_path',
+        'show' => 'song_path'
+    ],
+    'only' => ['index','show']
+]);
