@@ -10,7 +10,7 @@ class Song extends Eloquent {
      * @var array
      */
     protected $fillable = [
-        'title','lyrics'
+        'title','lyrics','slug'
     ];
 
 }

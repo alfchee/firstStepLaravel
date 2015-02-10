@@ -9,6 +9,6 @@
             {!! nl2br($song->lyrics) !!}
         </article>
 
-        {!! link_to_route('songs_path', 'Go Back Home') !!}
+        {!! link_to_route('songs.index', 'Go Back Home') !!}
     @endif
 @stop

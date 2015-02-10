@@ -17,10 +17,4 @@ $router->bind('songs',function($slug)
 });
 
 
-$router->resource('songs', 'SongsController', [
-    'names' => [
-        'index' => 'songs_path',
-        'show' => 'song_path'
-    ],
-    'only' => ['index','show']
-]);
+$router->resource('songs', 'SongsController');

@@ -34,9 +34,24 @@ class SongsController extends Controller {
      * @return [type]
      */
     public function show($song) {
-        
+
         return view('songs.show',compact('song'));
     }//show()
+
+    /**
+     * Show a form to create a new song
+     * @return View 
+     */
+    public function create() {
+
+        return view('songs.create');
+    }//create()
+
+    public function store(Request $request, Song $song) {
+        $song->create($request->all());
+
+        return redirect()->route('songs.index');
+    }//store()
 
     /**
      * edit a Song
