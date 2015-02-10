@@ -80,4 +80,10 @@ class SongsController extends Controller {
         return redirect('songs');
     }//update()
 
+    public function destroy(Song $song) {
+        $song->delete();
+
+        return redirect('songs');
+    }//destroy()
+
 }
