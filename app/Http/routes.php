@@ -12,18 +12,24 @@
 */
 
 
-Route::get('/', 'WelcomeController@index');
+// Route::get('/', 'WelcomeController@index');
 
-Route::get('home', 'HomeController@index');
+// Route::get('home', 'HomeController@index');
 
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
+// Route::controllers([
+// 	'auth' => 'Auth\AuthController',
+// 	'password' => 'Auth\PasswordController',
+// ]);
+
+// Route::get('/songs','SongsController@index');
+
+// Route::get('/songs/{slug}','SongsController@show');
+// Route::get('/songs/{slug}/edit','SongsController@edit');
+
+// patch('songs/{slug}','SongsController@update');
+
+$router->resource('songs', 'SongsController', [
+	'except' => [
+		'create'
+	]
 ]);
-
-Route::get('/songs','SongsController@index');
-
-Route::get('/songs/{slug}','SongsController@show');
-Route::get('/songs/{slug}/edit','SongsController@edit');
-
-patch('songs/{slug}','SongsController@update');
