@@ -11,25 +11,17 @@
 |
 */
 
+$router->bind('song',function($slug)
+{
+    return App\Song::whereSlug($slug)->first();
+});
 
-// Route::get('/', 'WelcomeController@index');
+$router->get('song', ['as' => 'songs_path', 'uses' => 'SongsController@index']);
+$router->get('song/{song}', ['as' => 'song_path', 'uses' => 'SongsController@show']);
 
-// Route::get('home', 'HomeController@index');
 
-// Route::controllers([
-// 	'auth' => 'Auth\AuthController',
-// 	'password' => 'Auth\PasswordController',
+// $router->resource('songs', 'SongsController', [
+//  'except' => [
+//      'create'
+//  ]
 // ]);
-
-// Route::get('/songs','SongsController@index');
-
-// Route::get('/songs/{slug}','SongsController@show');
-// Route::get('/songs/{slug}/edit','SongsController@edit');
-
-// patch('songs/{slug}','SongsController@update');
-
-$router->resource('songs', 'SongsController', [
-	'except' => [
-		'create'
-	]
-]);

@@ -33,9 +33,8 @@ class SongsController extends Controller {
      * @param  [type]
      * @return [type]
      */
-    public function show($slug) {
-        $song = $this->song->whereSlug($slug)->first();
-
+    public function show($song) {
+        
         return view('songs.show',compact('song'));
     }//show()
 
@@ -44,8 +43,8 @@ class SongsController extends Controller {
      * @param  string $slug
      * @return [type]
      */
-    public function edit($slug) {
-        $song = $this->song->whereSlug($slug)->first();
+    public function edit($song) {
+        //$song = $this->song->whereSlug($slug)->first();
 
         return view('songs.edit',compact('song'));
     }//edit()
@@ -54,9 +53,8 @@ class SongsController extends Controller {
      * [update description]
      * @return View
      */
-    public function update($slug, Request $request) {
-
-        $song = $this->song->whereSlug($slug)->first();
+    public function update($song, Request $request) {
+        //$song = $this->song->whereSlug($slug)->first();
 
         $song->fill($request->input())->save();
         // $song->fill(['title' => $request->get('title')])->save();
